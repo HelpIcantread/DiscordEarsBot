@@ -183,12 +183,12 @@ discordClient.on('message', async (msg) => {
         const mapKey = msg.guild.id;
         if (msg.content.trim().toLowerCase() == _CMD_JOIN) {
             if (!msg.member.voice.channelID) {
-                msg.reply('Error: please join a voice channel first.')
+                msg.reply('Wthek ur cannot use bot w/o join voice chnl firs')
             } else {
                 if (!guildMap.has(mapKey))
                     await connect(msg, mapKey)
                 else
-                    msg.reply('Already connected')
+                    msg.reply('Um ur alry connect guy')
             }
         } else if (msg.content.trim().toLowerCase() == _CMD_LEAVE) {
             if (guildMap.has(mapKey)) {
@@ -196,9 +196,9 @@ discordClient.on('message', async (msg) => {
                 if (val.voice_Channel) val.voice_Channel.leave()
                 if (val.voice_Connection) val.voice_Connection.disconnect()
                 guildMap.delete(mapKey)
-                msg.reply("Disconnected.")
+                msg.reply("Bye guy!!!")
             } else {
-                msg.reply("Cannot leave because not connected.")
+                msg.reply("Ummm ur cannot leaf b4 ur arribe")
             }
         } else if (msg.content.trim().toLowerCase() == _CMD_HELP) {
             msg.reply(getHelpString());
